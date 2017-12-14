@@ -249,6 +249,12 @@ class DbHandler {
           }
     }
 
+    /**
+     * Adding a new owner available in database
+     * @param String $userID is the ID of the user
+     * @param String $ISBN is the ISBN of the book
+     * @param String $bookcondition if the condition of the book (used, new...)
+     */
     public function addOwner($ISBN,$userID,$price,$bookcondition) {
             $stmt = $this->conn->prepare("INSERT INTO keedo_books_own (ISBN,user,price,bookcondition) VALUES (?,?,?,?)");
             $stmt->bind_param("sids",$ISBN, $userID, $price, $bookcondition);
