@@ -126,7 +126,6 @@ class DbHandler {
         $stmt = $this->conn->prepare("SELECT ID,login, email, api_key, status, registered FROM keedo_users WHERE email = ?");
         $stmt->bind_param("s", $email);
         if ($stmt->execute()) {
-            // $user = $stmt->get_result()->fetch_assoc();
             $stmt->bind_result($id,$login, $email, $api_key, $status, $registered);
             $stmt->fetch();
             $user = array();
